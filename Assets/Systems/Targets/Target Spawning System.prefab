@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6717012714212383934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3753455387332948966}
+  - component: {fileID: 8091311501408456973}
+  - component: {fileID: 7681302145316495478}
+  m_Layer: 0
+  m_Name: Target Spawning System
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3753455387332948966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6717012714212383934}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7948434, y: 0.64739907, z: 4.813002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8091311501408456973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6717012714212383934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e27159ed2195d84d87811fd37f5d777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmin: 17
+  dmax: 50
+  xmin: -95
+  xmax: 95
+  ymin: 0
+  ymax: 29.7
+  dminColor: {r: 0.063154235, g: 0.103773594, b: 0.059229266, a: 0.078431375}
+  dmaxColor: {r: 0, g: 1, b: 0, a: 0.019607844}
+--- !u!114 &7681302145316495478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6717012714212383934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f16098907078d459fb1bf9f27d2374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnRate: 0.5
+  PercentageMoving: 15
+  Target1: {fileID: 763205383370439422, guid: d017cbd584fba8c478e2ae440b8a0202, type: 3}
+  Target2: {fileID: 9218521980358519941, guid: d9c95076633195943ba3185532bc517f, type: 3}
+  Area: {fileID: 8091311501408456973}
