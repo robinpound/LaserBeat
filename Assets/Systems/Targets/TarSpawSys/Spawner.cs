@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Spawner;
 using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
@@ -17,25 +16,33 @@ public class Spawner : MonoBehaviour
 
     public SpawnData spawnData;
     public Queue<GameObject> pool;
+    
+    private bool spawning;
 
-    // FILL POOL
     public void Start() 
     {
-        spawnData = new SpawnData();
         pool = new Queue<GameObject>();
-        
-        for (int i = 0; i < pool.Count; i++) 
+        spawning = false;
+        populatePool();
+    }
+    private void populatePool() 
+    {
+        for (int i = 0; i < spawnData.size; i++)
         {
             GameObject tar = Instantiate(spawnData.Target);
-            tar.SetActive(true); //set to false
+            tar.SetActive(false); 
             pool.Enqueue(tar);
         }
     }
-    // SPAWNING 
-    public void StartSpawningSequence() => StartCoroutine(SpawnOnLoop());
+    public void StartSpawning()
+    {
+        spawning = true;
+        StartCoroutine(SpawnOnLoop());
+    }
+    public void StopSpawning() => spawning = false;
     private IEnumerator SpawnOnLoop()
     {
-        while (true)
+        while (spawning)
         {
             yield return new WaitForSeconds(spawnData.SpawnRate);
             spawnRandomTarget();
