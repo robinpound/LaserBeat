@@ -24,12 +24,13 @@ public class Spawner : MonoBehaviour
         pool = new Queue<GameObject>();
         spawning = false;
         populatePool();
+        // StartSpawning(); // Delete
     }
     private void populatePool() 
     {
         for (int i = 0; i < spawnData.size; i++)
         {
-            GameObject tar = Instantiate(spawnData.Target);
+            GameObject tar = Instantiate(spawnData.Target, this.transform);
             tar.SetActive(false); 
             pool.Enqueue(tar);
         }
@@ -50,6 +51,8 @@ public class Spawner : MonoBehaviour
     }
     private void spawnRandomTarget()
     {
-        
+        GameObject newTarget = pool.Dequeue();
+        newTarget.SetActive(true);
+
     }
 }
