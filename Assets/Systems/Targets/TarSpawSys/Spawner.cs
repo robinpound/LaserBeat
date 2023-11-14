@@ -17,15 +17,17 @@ public class Spawner : MonoBehaviour
     public SpawnData spawnData;
     public Queue<GameObject> pool;
     
-    private bool spawning;
+    private bool isSpawning;
 
     public void Start() 
     {
         pool = new Queue<GameObject>();
-        spawning = false;
+        isSpawning = false;
         populatePool();
         // StartSpawning(); // Delete
     }
+
+    // Spawning Targets
     private void populatePool() 
     {
         for (int i = 0; i < spawnData.size; i++)
@@ -35,15 +37,16 @@ public class Spawner : MonoBehaviour
             pool.Enqueue(tar);
         }
     }
+
+    // Activating Targets
     public void StartSpawning()
     {
-        spawning = true;
+        isSpawning = true;
         StartCoroutine(SpawnOnLoop());
     }
-    public void StopSpawning() => spawning = false;
     private IEnumerator SpawnOnLoop()
     {
-        while (spawning)
+        while (isSpawning)
         {
             yield return new WaitForSeconds(spawnData.SpawnRate);
             spawnRandomTarget();
@@ -53,6 +56,8 @@ public class Spawner : MonoBehaviour
     {
         GameObject newTarget = pool.Dequeue();
         newTarget.SetActive(true);
-
     }
+
+    // Stop Activating Targets
+    public void StopSpawning() => isSpawning = false;
 }
