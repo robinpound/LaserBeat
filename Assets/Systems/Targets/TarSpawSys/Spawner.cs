@@ -10,8 +10,8 @@ public class Spawner : MonoBehaviour
     public class SpawnData 
     {
         public GameObject Target;
-        [Range(0, 100)] public int size;
-        [Range(0, 5)] public float SpawnRate;
+        [Range(0, 100)] public int poolSize;
+        [Range(0, 5)] public float spawnRate;
     }
 
     public SpawnData spawnData;
@@ -28,7 +28,7 @@ public class Spawner : MonoBehaviour
     }
     private void populatePool() 
     {
-        for (int i = 0; i < spawnData.size; i++)
+        for (int i = 0; i < spawnData.poolSize; i++)
         {
             GameObject tar = Instantiate(spawnData.Target, this.transform);
             tar.SetActive(false); 
@@ -44,7 +44,7 @@ public class Spawner : MonoBehaviour
     {
         while (isSpawning)
         {
-            float secondsWait = ((spawnData.SpawnRate - 2.5f) * -1) + 2.5f; // flip the numbers so 5 is 0 and 0 is 5,
+            float secondsWait = ((spawnData.spawnRate - 2.5f) * -1) + 2.5f; // flip the numbers so 5 is 0 and 0 is 5,
                                                                             //                     4 is 1 and 1 is 4, etc
             yield return new WaitForSeconds(secondsWait);
             spawnRandomTarget();
