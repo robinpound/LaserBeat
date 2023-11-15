@@ -65,9 +65,9 @@ public class Spawner : MonoBehaviour
 
     public Vector3 getRandomLocationInArea()
     {
-        float randomDistance = Random.Range(Area.Dmin, Area.Dmax);
-        float randomXAngle = Random.Range(Area.Xmin, Area.Xmax);
-        float randomYAngle = Random.Range(Area.Ymin, Area.Ymax);
+        float randomDistance = Random.Range(SpawnerArea.Instance.Dmin, SpawnerArea.Instance.Dmax);
+        float randomXAngle = Random.Range(SpawnerArea.Instance.Xmin, SpawnerArea.Instance.Xmax);
+        float randomYAngle = Random.Range(SpawnerArea.Instance.Ymin, SpawnerArea.Instance.Ymax);
         Quaternion roation = Quaternion.Euler(-randomYAngle, randomXAngle, 0);
         return transform.position + roation * Vector3.forward * randomDistance;
     }
