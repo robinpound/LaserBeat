@@ -14,8 +14,9 @@ public class Spawner : MonoBehaviour
         [Range(0, 5)] public float SpawnRate;
     }
 
+
     public SpawnData spawnData;
-    public Queue<GameObject> pool;
+    private Queue<GameObject> pool;
     
     private bool isSpawning;
 
@@ -24,10 +25,8 @@ public class Spawner : MonoBehaviour
         pool = new Queue<GameObject>();
         isSpawning = false;
         populatePool();
-        // StartSpawning(); // Delete
+        StartSpawning();
     }
-
-    // Spawning Targets
     private void populatePool() 
     {
         for (int i = 0; i < spawnData.size; i++)
@@ -37,9 +36,7 @@ public class Spawner : MonoBehaviour
             pool.Enqueue(tar);
         }
     }
-
-    // Activating Targets
-    public void StartSpawning()
+    private void StartSpawning()
     {
         isSpawning = true;
         StartCoroutine(SpawnOnLoop());
@@ -48,7 +45,9 @@ public class Spawner : MonoBehaviour
     {
         while (isSpawning)
         {
-            yield return new WaitForSeconds(spawnData.SpawnRate);
+            float secondsWait = ((spawnData.SpawnRate - 2.5f) * -1) + 2.5f; // flip the numbers so 5 is 0 and 0 is 5,
+                                                                            //                     4 is 1 and 1 is 4, etc
+            yield return new WaitForSeconds(secondsWait);
             spawnRandomTarget();
         }
     }
@@ -57,7 +56,11 @@ public class Spawner : MonoBehaviour
         GameObject newTarget = pool.Dequeue();
         newTarget.SetActive(true);
     }
-
-    // Stop Activating Targets
+    // Public variables
+    public void despawnTarget(GameObject destroyedTarget) 
+    {
+        pool.Enqueue(destroyedTarget);
+        destroyedTarget.SetActive(false);
+    }
     public void StopSpawning() => isSpawning = false;
 }
