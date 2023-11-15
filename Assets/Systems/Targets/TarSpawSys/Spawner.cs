@@ -21,7 +21,6 @@ public class Spawner : MonoBehaviour
     }
 
     public SpawnData spawnData;
-    private float currentSpawnDelay; 
     private Queue<GameObject> pool;
     private bool isSpawning = false;
 
@@ -33,7 +32,7 @@ public class Spawner : MonoBehaviour
     }
     void FixedUpdate() 
     {
-        Debug.Log(spawnData.spawnCurve.Evaluate(Time.time));
+ 
     }
     private void populateCurve() 
     {
@@ -66,6 +65,7 @@ public class Spawner : MonoBehaviour
     {
         while (isSpawning)
         {
+            float currentSpawnDelay = spawnData.spawnCurve.Evaluate(Time.time);
             yield return new WaitForSeconds(currentSpawnDelay);
             spawnRandomTarget();
         }
