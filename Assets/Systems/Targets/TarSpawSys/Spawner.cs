@@ -10,9 +10,10 @@ public class Spawner : MonoBehaviour
     [System.Serializable]
     public class SpawnData 
     {
-        [Header("General Settings")]
-        public GameObject Target;
+        [Header("General")]
         [Range(0, 100)] public int poolSize;
+        public GameObject Target;
+
         [Header("Spawn Speed Timeline")]
         public Vector2[] SpawnPoints;
         public float[] SpawnSmooths;
