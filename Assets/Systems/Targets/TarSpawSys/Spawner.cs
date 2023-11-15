@@ -11,8 +11,7 @@ public class Spawner : MonoBehaviour
     {
         public GameObject Target;
         [Range(0, 100)] public int poolSize;
-        [Tooltip("Ignore the number - just use it as a slider")]
-        [Range(4, 5)] public float spawnRate;
+        [Range(0,5)] public float spawnDelay;
     }
 
     public SpawnData spawnData;
@@ -45,10 +44,7 @@ public class Spawner : MonoBehaviour
     {
         while (isSpawning)
         {
-            float secondsWait = ((spawnData.spawnRate - 2.5f) * -1) + 2.6f; // flip the numbers so 5 is 0 and 0 is 5,
-                                                                            //                     4 is 1 and 1 is 4, etc
-            Debug.Log(secondsWait);
-            yield return new WaitForSeconds(secondsWait);
+            yield return new WaitForSeconds(spawnData.spawnDelay);
             spawnRandomTarget();
         }
     }
