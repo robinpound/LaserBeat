@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
-using static System.DateTime;
 
 public class Spawner : MonoBehaviour
 {
@@ -29,10 +28,6 @@ public class Spawner : MonoBehaviour
         populateCurve();
         populatePool();
         StartSpawning();
-    }
-    void FixedUpdate() 
-    {
- 
     }
     private void populateCurve() 
     {
@@ -67,13 +62,14 @@ public class Spawner : MonoBehaviour
         {
             float currentSpawnDelay = spawnData.spawnCurve.Evaluate(Time.time);
             yield return new WaitForSeconds(currentSpawnDelay);
+            poolUnderflow();
             spawnRandomTarget();
         }
     }
     private void spawnRandomTarget()
     {
-        poolUnderflow(); // if pool is empty, give it more
         GameObject newTarget = pool.Dequeue();
+        newTarget.transform.position = getRandomLocationInArea();
         newTarget.SetActive(true);
     }
     private void poolUnderflow() 
