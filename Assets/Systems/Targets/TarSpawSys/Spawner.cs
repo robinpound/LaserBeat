@@ -11,7 +11,8 @@ public class Spawner : MonoBehaviour
     {
         public GameObject Target;
         [Range(0, 100)] public int poolSize;
-        [Range(0, 5)] public float spawnRate;
+        [Tooltip("Ignore the number - just use it as a slider")]
+        [Range(4, 5)] public float spawnRate;
     }
 
     public SpawnData spawnData;
@@ -44,16 +45,27 @@ public class Spawner : MonoBehaviour
     {
         while (isSpawning)
         {
-            float secondsWait = ((spawnData.spawnRate - 2.5f) * -1) + 2.5f; // flip the numbers so 5 is 0 and 0 is 5,
+            float secondsWait = ((spawnData.spawnRate - 2.5f) * -1) + 2.6f; // flip the numbers so 5 is 0 and 0 is 5,
                                                                             //                     4 is 1 and 1 is 4, etc
+            Debug.Log(secondsWait);
             yield return new WaitForSeconds(secondsWait);
             spawnRandomTarget();
         }
     }
     private void spawnRandomTarget()
     {
+        poolUnderflow(); // if pool is empty, give it more
         GameObject newTarget = pool.Dequeue();
         newTarget.SetActive(true);
+    }
+    private void poolUnderflow() 
+    {
+        if (pool.Count == 0)
+        {
+            spawnData.poolSize += 1;
+            GameObject tar = Instantiate(spawnData.Target, this.transform);
+            pool.Enqueue(tar);
+        }
     }
     // Public variables
     public void despawnTarget(GameObject destroyedTarget) 

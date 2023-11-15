@@ -47,8 +47,8 @@ MonoBehaviour:
   spawnData:
     Target: {fileID: 9062140145282770253, guid: a1e3db05ee453bc43860e9c072f49821,
       type: 3}
-    size: 20
-    SpawnRate: 1
+    poolSize: 20
+    spawnRate: 4
 --- !u!114 &3765829163767347651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
   dmax: 51
   xmin: -66.1
   xmax: 78.1
-  ymin: -17.5
-  ymax: 22.7
-  dminColor: {r: 0.19824673, g: 0.9339623, b: 0.21309505, a: 0}
-  dmaxColor: {r: 0.8490566, g: 0.084104665, b: 0.084104665, a: 0}
+  ymin: -22
+  ymax: 45
+  dminColor: {r: 0.061320752, g: 0.24528301, b: 0.064272, a: 0.078431375}
+  dmaxColor: {r: 0.103150584, g: 0.3584906, b: 0.108369514, a: 0.078431375}
