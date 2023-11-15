@@ -61,11 +61,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f9cb8e761cb444592bbfed207bf63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmin: 0
-  dmax: 0
-  xmin: 0
-  xmax: 0
-  ymin: 0
-  ymax: 0
-  dminColor: {r: 0, g: 0, b: 0, a: 0}
-  dmaxColor: {r: 0, g: 0, b: 0, a: 0}
+  dmin: 11
+  dmax: 51
+  xmin: -66.1
+  xmax: 78.1
+  ymin: -17.5
+  ymax: 22.7
+  dminColor: {r: 0.19824673, g: 0.9339623, b: 0.21309505, a: 0}
+  dmaxColor: {r: 0.8490566, g: 0.084104665, b: 0.084104665, a: 0}

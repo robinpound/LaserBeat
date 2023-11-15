@@ -14,7 +14,6 @@ public class Spawner : MonoBehaviour
         [Range(0, 5)] public float SpawnRate;
     }
 
-
     public SpawnData spawnData;
     private Queue<GameObject> pool;
     
@@ -63,4 +62,13 @@ public class Spawner : MonoBehaviour
         destroyedTarget.SetActive(false);
     }
     public void StopSpawning() => isSpawning = false;
+
+    public Vector3 getRandomLocationInArea()
+    {
+        float randomDistance = Random.Range(Area.Dmin, Area.Dmax);
+        float randomXAngle = Random.Range(Area.Xmin, Area.Xmax);
+        float randomYAngle = Random.Range(Area.Ymin, Area.Ymax);
+        Quaternion roation = Quaternion.Euler(-randomYAngle, randomXAngle, 0);
+        return transform.position + roation * Vector3.forward * randomDistance;
+    }
 }

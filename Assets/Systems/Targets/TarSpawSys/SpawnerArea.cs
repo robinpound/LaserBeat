@@ -4,21 +4,33 @@ using UnityEngine;
 
 public class SpawnerArea : MonoBehaviour
 {
+    #region Singleton
+    public static SpawnerArea Instance;
+
+    private void Awake() 
+    {
+        Instance = this;
+    }
+    #endregion
+
     [Header("Step 1: Distance")]
     [Tooltip("Minimum distance from center.")]
     [Range(0, 300)][SerializeField] private float dmin;
+
     [Tooltip("Maximum distance from center.")]
     [Range(0, 300)][SerializeField] private float dmax;
 
     [Header("Step 2: X-Angle")]
     [Tooltip("Minimum X angle.")]
     [Range(-180, 0)][SerializeField] private float xmin;
+
     [Tooltip("Maximum X angle.")]
     [Range(0, 180)][SerializeField] private float xmax;
 
     [Header("Step 3: Y-Angle")]
     [Tooltip("Minimum Y angle.")]
     [Range(-90, 0)][SerializeField] private float ymin;
+
     [Tooltip("Maximum Y angle.")]
     [Range(0, 90)][SerializeField] private float ymax;
 
