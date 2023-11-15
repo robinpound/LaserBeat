@@ -48,7 +48,29 @@ MonoBehaviour:
     Target: {fileID: 9062140145282770253, guid: a1e3db05ee453bc43860e9c072f49821,
       type: 3}
     poolSize: 20
-    spawnRate: 4
+    SpawnDelayMultiplier: 1
+    SpawnBehaviour:
+    - {x: 0, y: 4}
+    - {x: 25, y: 6}
+    - {x: 60, y: 10}
+    - {x: 150, y: 15}
+    - {x: 160, y: 2}
+    - {x: 170, y: 0}
+    spawnCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.016415868
+        value: 0.37176472
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
 --- !u!114 &3765829163767347651
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,25 +9,39 @@ public class Spawner : MonoBehaviour
     [System.Serializable]
     public class SpawnData 
     {
+        [Header("General Settings")]
         public GameObject Target;
         [Range(0, 100)] public int poolSize;
-        [Range(0,5)] public float spawnDelay;
+        [Range(0, 5)] public float SpawnDelayMultiplier;
+
+        [Header("Spawnrates")]
+        public Vector2[] SpawnBehaviour;
+        [SerializeField] public AnimationCurve spawnCurve;
     }
 
     public SpawnData spawnData;
+    private float currentSpawnDelay; 
     private Queue<GameObject> pool;
-    
-    private bool isSpawning;
+    private bool isSpawning = false;
 
     public void Start() 
     {
-        pool = new Queue<GameObject>();
-        isSpawning = false;
+        populateCurve();
         populatePool();
         StartSpawning();
     }
+    private void populateCurve() 
+    {
+        spawnData.spawnCurve = new AnimationCurve();
+        for (int i = 0; i < spawnData.SpawnBehaviour.Length; i++)
+        {
+            spawnData.spawnCurve.AddKey(spawnData.SpawnBehaviour[i].x, spawnData.SpawnBehaviour[i].y);
+        }
+        spawnData.spawnCurve.SmoothTangents(3,1);
+    }
     private void populatePool() 
     {
+        pool = new Queue<GameObject>();
         for (int i = 0; i < spawnData.poolSize; i++)
         {
             GameObject tar = Instantiate(spawnData.Target, this.transform);
@@ -44,7 +58,7 @@ public class Spawner : MonoBehaviour
     {
         while (isSpawning)
         {
-            yield return new WaitForSeconds(spawnData.spawnDelay);
+            yield return new WaitForSeconds(currentSpawnDelay);
             spawnRandomTarget();
         }
     }
