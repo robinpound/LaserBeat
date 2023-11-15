@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 768182714989560704}
   - component: {fileID: 1714971559606798719}
+  - component: {fileID: 3765829163767347651}
   m_Layer: 0
   m_Name: TargetSpawningSystem
   m_TagString: Untagged
@@ -48,3 +49,23 @@ MonoBehaviour:
       type: 3}
     size: 20
     SpawnRate: 1
+--- !u!114 &3765829163767347651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5062675803644117997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f9cb8e761cb444592bbfed207bf63b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmin: 0
+  dmax: 0
+  xmin: 0
+  xmax: 0
+  ymin: 0
+  ymax: 0
+  dminColor: {r: 0, g: 0, b: 0, a: 0}
+  dmaxColor: {r: 0, g: 0, b: 0, a: 0}
