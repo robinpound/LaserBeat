@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using static System.DateTime;
 
 public class Spawner : MonoBehaviour
 {
@@ -12,10 +13,9 @@ public class Spawner : MonoBehaviour
         [Header("General Settings")]
         public GameObject Target;
         [Range(0, 100)] public int poolSize;
-        [Range(0, 5)] public float SpawnDelayMultiplier;
-
-        [Header("Spawnrates")]
-        public Vector2[] SpawnBehaviour;
+        [Header("Spawn Speed Timeline")]
+        public Vector2[] SpawnPoints;
+        public float[] SpawnSmooths;
         [SerializeField] public AnimationCurve spawnCurve;
     }
 
@@ -30,14 +30,21 @@ public class Spawner : MonoBehaviour
         populatePool();
         StartSpawning();
     }
+    void FixedUpdate() 
+    {
+        Debug.Log(spawnData.spawnCurve.Evaluate(Time.time));
+    }
     private void populateCurve() 
     {
         spawnData.spawnCurve = new AnimationCurve();
-        for (int i = 0; i < spawnData.SpawnBehaviour.Length; i++)
+        for (int i = 0; i < spawnData.SpawnPoints.Length; i++)
         {
-            spawnData.spawnCurve.AddKey(spawnData.SpawnBehaviour[i].x, spawnData.SpawnBehaviour[i].y);
+            spawnData.spawnCurve.AddKey(spawnData.SpawnPoints[i].x, spawnData.SpawnPoints[i].y);
         }
-        spawnData.spawnCurve.SmoothTangents(3,1);
+        for (int i = 0; i < spawnData.SpawnSmooths.Length; i++)
+        {
+            spawnData.spawnCurve.SmoothTangents(i, spawnData.SpawnSmooths[i]);
+        }
     }
     private void populatePool() 
     {

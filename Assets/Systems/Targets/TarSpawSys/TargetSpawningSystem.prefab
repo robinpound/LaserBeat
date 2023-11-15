@@ -48,14 +48,13 @@ MonoBehaviour:
     Target: {fileID: 9062140145282770253, guid: a1e3db05ee453bc43860e9c072f49821,
       type: 3}
     poolSize: 20
-    SpawnDelayMultiplier: 1
-    SpawnBehaviour:
+    SpawnPoints:
     - {x: 0, y: 4}
-    - {x: 25, y: 6}
     - {x: 60, y: 10}
-    - {x: 150, y: 15}
-    - {x: 160, y: 2}
-    - {x: 170, y: 0}
+    - {x: 120, y: 0}
+    SpawnSmooths:
+    - -3
+    - 3
     spawnCurve:
       serializedVersion: 2
       m_Curve:
