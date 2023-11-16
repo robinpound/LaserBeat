@@ -5,6 +5,8 @@ public class LaserGunRayCast : MonoBehaviour
     public delegate void HitAction();
     public static event HitAction OnLaserHit;
 
+    [SerializeField] private Spawner spawner;
+
     public void Fire(Transform rayOrigin)
     {
         RaycastHit hit;
@@ -18,6 +20,8 @@ public class LaserGunRayCast : MonoBehaviour
             {
                 Debug.Log("Laser from " + rayOrigin.gameObject.name + 
                     " hit " + hit.collider.gameObject.name +   ", call subscibed events!");
+
+                spawner.despawnTarget(hit.collider.gameObject);
                 OnLaserHit();
             }
         }
