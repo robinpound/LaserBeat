@@ -66,13 +66,7 @@ public class Spawner : MonoBehaviour
             spawnRandomTarget();
         }
     }
-    private void spawnRandomTarget()
-    {
-        GameObject newTarget = pool.Dequeue();
-        newTarget.transform.position = getRandomLocationInArea();
-        newTarget.SetActive(true);
-    }
-    private void poolUnderflow() 
+    private void poolUnderflow()
     {
         if (pool.Count == 0)
         {
@@ -81,6 +75,13 @@ public class Spawner : MonoBehaviour
             pool.Enqueue(tar);
         }
     }
+    private void spawnRandomTarget()
+    {
+        GameObject newTarget = pool.Dequeue();
+        newTarget.transform.position = getRandomLocationInArea();
+        newTarget.SetActive(true);
+    }
+
     // Public variables
     public void despawnTarget(GameObject destroyedTarget) 
     {
