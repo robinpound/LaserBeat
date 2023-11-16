@@ -6,6 +6,7 @@ using Liminal.SDK.VR;
 
 public class Shooting : MonoBehaviour
 {
+    /*
     // Start is called before the first frame update
     void Start()
     {
@@ -57,4 +58,5 @@ public class Shooting : MonoBehaviour
     {
         Debug.Log($"<b>  Left hand shooting </b>");
     }
+    */
 }

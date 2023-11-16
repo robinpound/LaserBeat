@@ -1,5 +1,8 @@
 fileFormatVersion: 2
 guid: f1eccb0378587df41819af36dde0b945
+labels:
+- Spawner
+- Target
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
