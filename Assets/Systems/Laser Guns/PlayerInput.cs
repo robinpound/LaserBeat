@@ -2,7 +2,6 @@
 using Liminal.SDK.VR;
 using Liminal.SDK.VR.Input;
 
-
 public class PlayerInput : MonoBehaviour
 {
     [Tooltip("Attach primary and secondary hand game objects located on the VR avatar, here")]
@@ -45,6 +44,15 @@ public class PlayerInput : MonoBehaviour
     {
         var device = VRDevice.Device;
         return hand == VRInputDeviceHand.Left ? device.SecondaryInputDevice : device.PrimaryInputDevice;
+    }
+
+    public Transform GetOriginPosPrimary()
+    {
+        return primaryHand.transform;
+    }
+    public Transform GetOriginPosSecondary()
+    {
+        return secondaryHand.transform;
     }
 
 }
