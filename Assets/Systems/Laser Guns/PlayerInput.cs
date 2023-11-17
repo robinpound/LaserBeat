@@ -9,6 +9,9 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private GameObject primaryHand, secondaryHand;
     private LaserGunRayCast rayCast;
 
+    int primaryGunIndex = 1;
+    int secondaryGunIndex = 2;
+
     private void Start()
     {
         rayCast = gameObject.GetComponent<LaserGunRayCast>();
@@ -24,7 +27,7 @@ public class PlayerInput : MonoBehaviour
             if (rightHandInput.GetButtonDown(VRButton.One))
             {
                 //Debug.Log("Call right hand input");
-                rayCast.Fire(primaryHand.transform);
+                rayCast.Fire(primaryHand.transform, primaryGunIndex);
             }
         }
 
@@ -33,7 +36,7 @@ public class PlayerInput : MonoBehaviour
             if (leftHandInput.GetButtonDown(VRButton.One))
             {
                 //Debug.Log("Call left hand input");
-                rayCast.Fire(secondaryHand.transform);
+                rayCast.Fire(secondaryHand.transform, secondaryGunIndex);
             }
         }
     }
