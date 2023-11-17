@@ -6,20 +6,7 @@ using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
-    [PreferBinarySerialization]
-    [System.Serializable]
-    public class SpawnData 
-    {
-        [Header("General")]
-        [Range(0, 100)] public int poolSize;
-        public GameObject Target;
-
-        [Header("Spawn Speed Timeline")]
-        public Vector2[] SpawnPoints;
-        public float[] SpawnSmooths;
-        [SerializeField] public AnimationCurve spawnCurve;
-    }
- 
+    
     [Header("Step 1: Distance")]
     [Tooltip("Minimum distance from center.")]
     [Range(0, 300)][SerializeField] public float dmin;
@@ -44,7 +31,20 @@ public class Spawner : MonoBehaviour
     [Header("Sphere Colours")]
     [SerializeField] Color dminColor;
     [SerializeField] Color dmaxColor;
-    
+
+    [PreferBinarySerialization]
+    [System.Serializable]
+    public class SpawnData
+    {
+        [Header("General")]
+        [Range(0, 100)] public int poolSize;
+        public GameObject Target;
+
+        [Header("Spawn Speed Timeline")]
+        public Vector2[] SpawnPoints;
+        public float[] SpawnSmooths;
+        [SerializeField] public AnimationCurve spawnCurve;
+    }
 
     public SpawnData spawnData;
     private Queue<GameObject> pool;
@@ -55,6 +55,10 @@ public class Spawner : MonoBehaviour
         populateCurve();
         populatePool();
         StartSpawning();
+    }
+    void Update() 
+    {
+        IfEmptySceneSpawn();
     }
     private void populateCurve() 
     {
@@ -89,27 +93,27 @@ public class Spawner : MonoBehaviour
         {
             float currentSpawnDelay = spawnData.spawnCurve.Evaluate(Time.time);
             yield return new WaitForSeconds(currentSpawnDelay);
-            poolUnderflow();
             spawnRandomTarget();
         }
     }
-    private void poolUnderflow()
+    private void IfEmptySceneSpawn()
     {
-        if (pool.Count == 0)
+        if (pool.Count == spawnData.poolSize)
         {
-            spawnData.poolSize += 1;
-            GameObject tar = Instantiate(spawnData.Target, this.transform);
-            pool.Enqueue(tar);
+            spawnRandomTarget();
         }
     }
     private void spawnRandomTarget()
     {
-        GameObject newTarget = pool.Dequeue();
-        newTarget.transform.position = getRandomLocationInArea();
-        newTarget.SetActive(true);
+        if (pool.Count != 0)
+        {
+            GameObject newTarget = pool.Dequeue();
+            newTarget.transform.position = getRandomLocationInArea();
+            newTarget.SetActive(true);
+        }
     }
 
-    // Public variables
+    // Public methods
     public void despawnTarget(GameObject destroyedTarget) 
     {
         pool.Enqueue(destroyedTarget);
@@ -131,6 +135,8 @@ public class Spawner : MonoBehaviour
             centre + Quaternion.Euler(z21, z22, 0) * Vector3.forward * d2
         );
     }
+
+    //GIZMOS
     private void OnDrawGizmos()
     {
         // SETTINGS
@@ -170,12 +176,4 @@ public class Spawner : MonoBehaviour
             DrawLine(centre, i, xmin, i + LINELENGTH, xmin, dmin, dmin);
         }
     }
-
-    // Getters
-    public float Dmin { get => dmin; }
-    public float Dmax { get => dmax; }
-    public float Xmin { get => xmin; }
-    public float Xmax { get => xmax; }
-    public float Ymin { get => ymin; }
-    public float Ymax { get => ymax; }
 }
