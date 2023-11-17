@@ -128,6 +128,8 @@ public class Spawner : MonoBehaviour
         Quaternion roation = Quaternion.Euler(-randomYAngle, randomXAngle, 0);
         return transform.position + roation * Vector3.forward * randomDistance;
     }
+
+    //GIZMOS
     private void DrawLine(Vector3 centre, float z11, float z12, float z21, float z22, float d1, float d2)
     {
         Gizmos.DrawLine( // TOP RIGHT
@@ -135,8 +137,6 @@ public class Spawner : MonoBehaviour
             centre + Quaternion.Euler(z21, z22, 0) * Vector3.forward * d2
         );
     }
-
-    //GIZMOS
     private void OnDrawGizmos()
     {
         // SETTINGS
