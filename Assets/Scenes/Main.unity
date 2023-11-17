@@ -262,7 +262,78 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736,
+        type: 3}
+      propertyPath: dmin
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736,
+        type: 3}
+      propertyPath: dmax
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736,
+        type: 3}
+      propertyPath: xmin
+      value: -24.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736,
+        type: 3}
+      propertyPath: xmax
+      value: 23.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736,
+        type: 3}
+      propertyPath: ymin
+      value: -9.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736,
+        type: 3}
+      propertyPath: ymax
+      value: 11.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736,
+        type: 3}
+      propertyPath: dminColor.r
+      value: 0.4528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736,
+        type: 3}
+      propertyPath: dminColor.g
+      value: 0.28408688
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736,
+        type: 3}
+      propertyPath: dminColor.b
+      value: 0.28408688
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736,
+        type: 3}
+      propertyPath: dmaxColor.r
+      value: 0.10583522
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736,
+        type: 3}
+      propertyPath: dmaxColor.g
+      value: 0.24528301
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736,
+        type: 3}
+      propertyPath: dmaxColor.b
+      value: 0.100658596
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736,
+        type: 3}
+      propertyPath: dmaxColor.a
+      value: 0.1882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736,
+        type: 3}
+      propertyPath: dminColor.a
+      value: 0.20392157
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3765829163767347651, guid: 11c136d1bb9fa4048b995af3bacf3736, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 11c136d1bb9fa4048b995af3bacf3736, type: 3}
 --- !u!1 &495676699
 GameObject:
@@ -580,7 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BuildType: 2
-  EditorType: 3
+  EditorType: 1
 --- !u!114 &1676988089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -646,7 +717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1871223466
 Transform:
   m_ObjectHideFlags: 0
