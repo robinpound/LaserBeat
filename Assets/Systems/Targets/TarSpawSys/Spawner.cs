@@ -32,52 +32,30 @@ public class Spawner : MonoBehaviour
     [SerializeField] Color dminColor;
     [SerializeField] Color dmaxColor;
 
-    [PreferBinarySerialization]
-    [System.Serializable]
-    public class SpawnData
-    {
-        [Header("General")]
-        [Range(0, 100)] public int poolSize;
-        public GameObject Target;
-
-        [Header("Spawn Speed Timeline")]
-        public Vector2[] SpawnPoints;
-        public float[] SpawnSmooths;
-        [SerializeField] public AnimationCurve spawnCurve;
-    }
-
-    public SpawnData spawnData;
+    [Header("Target Settings")]
+    [Range(0, 100)] public int poolSize;
+    public GameObject Target;
+    [SerializeField] public AnimationCurve spawnCurve;
     private Queue<GameObject> pool;
     private bool isSpawning = false;
 
     public void Start() 
     {
-        populateCurve();
         populatePool();
         StartSpawning();
     }
     void Update() 
     {
         IfEmptySceneSpawn();
+        Debug.Log(spawnCurve.Evaluate(Time.time));
     }
-    private void populateCurve() 
-    {
-        spawnData.spawnCurve = new AnimationCurve();
-        for (int i = 0; i < spawnData.SpawnPoints.Length; i++)
-        {
-            spawnData.spawnCurve.AddKey(spawnData.SpawnPoints[i].x, spawnData.SpawnPoints[i].y);
-        }
-        for (int i = 0; i < spawnData.SpawnSmooths.Length; i++)
-        {
-            spawnData.spawnCurve.SmoothTangents(i, spawnData.SpawnSmooths[i]);
-        }
-    }
+
     private void populatePool() 
     {
         pool = new Queue<GameObject>();
-        for (int i = 0; i < spawnData.poolSize; i++)
+        for (int i = 0; i < poolSize; i++)
         {
-            GameObject tar = Instantiate(spawnData.Target, this.transform);
+            GameObject tar = Instantiate(Target, this.transform);
             tar.SetActive(false); 
             pool.Enqueue(tar);
         }
@@ -91,14 +69,14 @@ public class Spawner : MonoBehaviour
     {
         while (isSpawning)
         {
-            float currentSpawnDelay = spawnData.spawnCurve.Evaluate(Time.time);
+            float currentSpawnDelay = spawnCurve.Evaluate(Time.time); // change this from delay to average targets spawned
             yield return new WaitForSeconds(currentSpawnDelay);
             spawnRandomTarget();
         }
     }
     private void IfEmptySceneSpawn()
     {
-        if (pool.Count == spawnData.poolSize)
+        if (pool.Count == poolSize)
         {
             spawnRandomTarget();
         }
