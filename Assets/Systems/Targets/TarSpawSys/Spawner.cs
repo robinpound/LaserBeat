@@ -38,6 +38,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] public AnimationCurve spawnCurve;
     private Queue<GameObject> pool;
     private bool isSpawning = false;
+    private int targetsInPlayCounter;
 
     public void Start() 
     {
@@ -47,7 +48,8 @@ public class Spawner : MonoBehaviour
     void Update() 
     {
         IfEmptySceneSpawn();
-        Debug.Log(spawnCurve.Evaluate(Time.time));
+        Debug.Log("Average target spawned: " + spawnCurve.Evaluate(Time.time));
+        Debug.Log("targetsInPlayCounter: " + targetsInPlayCounter);
     }
 
     private void populatePool() 
@@ -69,9 +71,11 @@ public class Spawner : MonoBehaviour
     {
         while (isSpawning)
         {
-            float currentSpawnDelay = spawnCurve.Evaluate(Time.time); // change this from delay to average targets spawned
-            yield return new WaitForSeconds(currentSpawnDelay);
-            spawnRandomTarget();
+            if (targetsInPlayCounter < spawnCurve.Evaluate(Time.time)) 
+            {
+                yield return new WaitForSeconds(0.2f);
+                spawnRandomTarget();
+            }
         }
     }
     private void IfEmptySceneSpawn()
@@ -83,11 +87,12 @@ public class Spawner : MonoBehaviour
     }
     private void spawnRandomTarget()
     {
-        if (pool.Count != 0)
+        if (pool.Count != 0) // hard limit
         {
             GameObject newTarget = pool.Dequeue();
             newTarget.transform.position = getRandomLocationInArea();
             newTarget.SetActive(true);
+            targetsInPlayCounter++;
         }
     }
 
@@ -96,6 +101,7 @@ public class Spawner : MonoBehaviour
     {
         pool.Enqueue(destroyedTarget);
         destroyedTarget.SetActive(false);
+        targetsInPlayCounter--;
     }
     public void StopSpawning() => isSpawning = false;
     public Vector3 getRandomLocationInArea()
