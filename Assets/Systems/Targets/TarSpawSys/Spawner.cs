@@ -73,9 +73,9 @@ public class Spawner : MonoBehaviour
         {
             if (targetsInPlayCounter < spawnCurve.Evaluate(Time.time)) 
             {
-                yield return new WaitForSeconds(0.2f);
                 spawnRandomTarget();
             }
+            yield return new WaitForSeconds(0.1f);
         }
     }
     private void IfEmptySceneSpawn()
