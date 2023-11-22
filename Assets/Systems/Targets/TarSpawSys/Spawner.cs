@@ -5,37 +5,44 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
-{
-    
-    [Header("Step 1: Distance")]
+{   
+        [Header("Step 1: Distance")]
+
     [Tooltip("Minimum distance from center.")]
     [Range(0, 300)][SerializeField] public float dmin;
 
     [Tooltip("Maximum distance from center.")]
     [Range(0, 300)][SerializeField] public float dmax;
 
-    [Header("Step 2: X-Angle")]
+        [Header("Step 2: X-Angle")]
+
     [Tooltip("Minimum X angle.")]
     [Range(-180, 0)][SerializeField] public float xmin;
 
     [Tooltip("Maximum X angle.")]
     [Range(0, 180)][SerializeField] public float xmax;
 
-    [Header("Step 3: Y-Angle")]
+        [Header("Step 3: Y-Angle")]
+
     [Tooltip("Minimum Y angle.")]
     [Range(-90, 0)][SerializeField] public float ymin;
 
     [Tooltip("Maximum Y angle.")]
     [Range(0, 90)][SerializeField] public float ymax;
 
-    [Header("Sphere Colours")]
+        [Header("Sphere Colours")]
+
     [SerializeField] Color dminColor;
     [SerializeField] Color dmaxColor;
 
-    [Header("Target Settings")]
+        [Header("Target Settings")]
+
     [Range(0, 100)] public int poolSize;
     public GameObject Target;
     [SerializeField] public AnimationCurve spawnCurve;
+
+        // Private 
+
     private Queue<GameObject> pool;
     private bool isSpawning = false;
     private int targetsInPlayCounter;
@@ -48,8 +55,6 @@ public class Spawner : MonoBehaviour
     void Update() 
     {
         IfEmptySceneSpawn();
-        Debug.Log("Average target spawned: " + spawnCurve.Evaluate(Time.time));
-        Debug.Log("targetsInPlayCounter: " + targetsInPlayCounter);
     }
 
     private void populatePool() 
