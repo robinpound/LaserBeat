@@ -8,7 +8,7 @@ public class TargetMovement : MonoBehaviour
     [Tooltip("Seconds until the target changes direction")]
     [Range(0, 10)][SerializeField] float SecDirectionChange;
     [Tooltip("Speed of target")]
-    [Range(0, 5)][SerializeField] float Speed;
+    [Range(0, 10)][SerializeField] float Speed;
 
     [Header("Refereces")]
     [SerializeField] Spawner spawner;

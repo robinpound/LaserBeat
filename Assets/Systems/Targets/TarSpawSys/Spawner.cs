@@ -97,6 +97,7 @@ public class Spawner : MonoBehaviour
             GameObject newTarget = pool.Dequeue();
             newTarget.transform.position = getRandomLocationInArea();
             newTarget.SetActive(true);
+            newTarget.GetComponent<TargetMovement>().SetTargetMoving();
             targetsInPlayCounter++;
         }
     }
