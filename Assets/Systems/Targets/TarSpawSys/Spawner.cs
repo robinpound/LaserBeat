@@ -52,7 +52,7 @@ public class Spawner : MonoBehaviour
         populatePool();
         StartSpawning();
     }
-    void Update() 
+    public void Update() 
     {
         IfEmptySceneSpawn();
     }
