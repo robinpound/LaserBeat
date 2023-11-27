@@ -26,6 +26,8 @@ public class LaserGunRayCast : MonoBehaviour
                 if (gunIndex == 1 && targetType == TargetType.TargetMaterial.Primary) PrimaryTargetHit(hit);
 
                 if (gunIndex == 2 && targetType == TargetType.TargetMaterial.Secondary) SecondaryTargetHit(hit);
+
+                if (targetType == TargetType.TargetMaterial.Final) FinalTargetHit(hit);
             }
         }
     }
@@ -38,6 +40,10 @@ public class LaserGunRayCast : MonoBehaviour
     private void SecondaryTargetHit(RaycastHit hit)
     {
         Debug.Log("We destroyed a secondary colour target");
+    }
+    private void FinalTargetHit(RaycastHit hit)
+    {
+        Debug.Log("We hit the final colour target");
     }
 
     private void DebugRayCast(Transform rayOrigin)

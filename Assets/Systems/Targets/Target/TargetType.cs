@@ -2,8 +2,9 @@
 
 public class TargetType : MonoBehaviour
 {
-    [SerializeField] private Material primaryMaterial, secondaryMaterial;
-    public enum TargetMaterial { Primary, Secondary };
+    [SerializeField] private Material primaryMaterial, secondaryMaterial, finalMaterial;
+    [SerializeField] private bool isFinal = false;
+    public enum TargetMaterial { Primary, Secondary, Final};
     private TargetMaterial targetMaterial;
     
     private void Start()
@@ -11,6 +12,7 @@ public class TargetType : MonoBehaviour
         bool randColour = Random.Range(0, 2) == 1;
         if (randColour) targetMaterial = TargetMaterial.Primary;
         else targetMaterial = TargetMaterial.Secondary;
+        if (isFinal) targetMaterial = TargetMaterial.Final;
 
         switch (targetMaterial)
         {
@@ -20,6 +22,10 @@ public class TargetType : MonoBehaviour
 
             case TargetMaterial.Secondary:
                 gameObject.GetComponent<Renderer>().material = secondaryMaterial;
+                break;
+
+            case TargetMaterial.Final:
+                gameObject.GetComponent<Renderer>().material = finalMaterial;
                 break;
         }
     }
