@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2695928699523304883}
   - component: {fileID: 3195775855965882519}
   - component: {fileID: 3907636678700035437}
+  - component: {fileID: 597884231375567793}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -40,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9062140145282770253}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &3195775855965882519
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -93,3 +94,17 @@ MonoBehaviour:
   SecDirectionChange: 5
   Speed: 5
   spawner: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736, type: 3}
+--- !u!114 &597884231375567793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9062140145282770253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0bb04f8a83d13f4ca77a343157f533a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primaryMaterial: {fileID: 2100000, guid: 09039a1e0a980dc40899eb16770649e6, type: 2}
+  secondaryMaterial: {fileID: 2100000, guid: 9fcaa5fa6c6822e43af79cc6fe0e3ddf, type: 2}
