@@ -27,7 +27,7 @@ public class PlayerInput : MonoBehaviour
         {
             if (rightHandInput.GetButtonDown(VRButton.One))
             {
-                Debug.Log("Call right hand input");
+                //Debug.Log("Call right hand input");
                 rayCast.Fire(primaryHand.transform, primaryGunIndex);
                 sfx.PlayShootSound();
             }
