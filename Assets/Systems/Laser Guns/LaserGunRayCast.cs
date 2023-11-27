@@ -5,7 +5,7 @@ public class LaserGunRayCast : MonoBehaviour
     public delegate void HitAction();
     public static event HitAction OnLaserHit;
 
-    //[SerializeField] private Spawner spawner;
+    [SerializeField] private Spawner spawner;
 
     public void Fire(Transform rayOrigin, int gunIndex)
     {
@@ -15,8 +15,8 @@ public class LaserGunRayCast : MonoBehaviour
 
         if(Physics.Raycast(laserGunRay, out hit))
         {
-            if (hit.collider != null && OnLaserHit != null && 
-                hit.collider.gameObject.GetComponent<TargetType>())
+            if (hit.collider != null && 
+                hit.collider.gameObject.GetComponent<TargetType>() != null)
             {
                 TargetType.TargetMaterial targetType = 
                     hit.collider.gameObject.GetComponent<TargetType>().GetTargetType();
@@ -33,7 +33,7 @@ public class LaserGunRayCast : MonoBehaviour
     }
     private void PrimaryTargetHit(RaycastHit hit)
     {
-        //spawner.despawnTarget(hit.collider.gameObject);
+        spawner.despawnTarget(hit.collider.gameObject);
         //OnLaserHit();
         Debug.Log("We destroyed a primary colour target");
     }

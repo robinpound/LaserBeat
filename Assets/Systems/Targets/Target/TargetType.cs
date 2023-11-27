@@ -10,7 +10,7 @@ public class TargetType : MonoBehaviour
     private void Start()
     {
         bool randColour = Random.Range(0, 2) == 1;
-        if (randColour) targetMaterial = TargetMaterial.Primary;
+        if (true) targetMaterial = TargetMaterial.Primary; // Change to rand colour after testing
         else targetMaterial = TargetMaterial.Secondary;
         if (isFinal) targetMaterial = TargetMaterial.Final;
 

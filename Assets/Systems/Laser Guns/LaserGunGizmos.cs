@@ -11,7 +11,7 @@ public class LaserGunGizmos : MonoBehaviour
     }
     public void OnDrawGizmos()
     {
-        Gizmos.color = Color.black;
+        Gizmos.color = Color.green;
         float distance = 100f;
         if (primaryOrigin != null) DrawLine(primaryOrigin, distance);
         if (secondaryOrigin !=null) DrawLine(secondaryOrigin, distance);
