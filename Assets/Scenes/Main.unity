@@ -467,11 +467,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 571956875}
+  - {fileID: 1081529513}
   m_Father: {fileID: 1676988090}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &571956874
+--- !u!1001 &610163247
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -481,7 +481,7 @@ PrefabInstance:
     - target: {fileID: 328700856381671466, guid: 5e9c7f1a1a54ca64696f85c8bccc5cbe,
         type: 3}
       propertyPath: m_Name
-      value: Music
+      value: MusicPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 2514522266312531804, guid: 5e9c7f1a1a54ca64696f85c8bccc5cbe,
         type: 3}
@@ -501,17 +501,17 @@ PrefabInstance:
     - target: {fileID: 2514522266312531804, guid: 5e9c7f1a1a54ca64696f85c8bccc5cbe,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2514522266312531804, guid: 5e9c7f1a1a54ca64696f85c8bccc5cbe,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2514522266312531804, guid: 5e9c7f1a1a54ca64696f85c8bccc5cbe,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2514522266312531804, guid: 5e9c7f1a1a54ca64696f85c8bccc5cbe,
         type: 3}
@@ -538,13 +538,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4752394016100997691, guid: 5e9c7f1a1a54ca64696f85c8bccc5cbe,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.061
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9c7f1a1a54ca64696f85c8bccc5cbe, type: 3}
---- !u!4 &571956875 stripped
+--- !u!4 &1081529513 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2514522266312531804, guid: 5e9c7f1a1a54ca64696f85c8bccc5cbe,
     type: 3}
-  m_PrefabInstance: {fileID: 571956874}
+  m_PrefabInstance: {fileID: 610163247}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1585836901
 GameObject:
