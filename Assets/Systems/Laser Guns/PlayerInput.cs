@@ -7,6 +7,7 @@ public class PlayerInput : MonoBehaviour
     [Tooltip("Attach primary and secondary hand game objects located on the VR avatar, here")]
     [SerializeField] private GameObject primaryHand, secondaryHand;
     private LaserGunRayCast rayCast;
+    private LaserShotSFX sfx;
 
     int primaryGunIndex = 1;
     int secondaryGunIndex = 2;
@@ -14,6 +15,7 @@ public class PlayerInput : MonoBehaviour
     private void Start()
     {
         rayCast = gameObject.GetComponent<LaserGunRayCast>();
+        sfx = gameObject.GetComponent<LaserShotSFX>();
     }
 
     private void Update() 
@@ -27,7 +29,9 @@ public class PlayerInput : MonoBehaviour
             {
                 Debug.Log("Call right hand input");
                 rayCast.Fire(primaryHand.transform, primaryGunIndex);
+                sfx.PlayShootSound();
             }
+            
         }
 
         if (leftHandInput != null)
@@ -36,7 +40,9 @@ public class PlayerInput : MonoBehaviour
             {
                 //Debug.Log("Call left hand input");
                 rayCast.Fire(secondaryHand.transform, secondaryGunIndex);
+                sfx.PlayShootSound();
             }
+            
         }
     }
 
