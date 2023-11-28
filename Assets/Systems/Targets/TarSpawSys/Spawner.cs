@@ -40,6 +40,9 @@ public class Spawner : MonoBehaviour
     [Range(0, 100)] public int poolSize;
     public GameObject Target;
     [SerializeField] public AnimationCurve spawnCurve;
+    public GameObject FinalTarget;
+    [SerializeField] private float spawnFinalTargetTime;
+    private bool HasSpawnedFinal = false;
 
         // Private 
 
@@ -51,6 +54,15 @@ public class Spawner : MonoBehaviour
     {
         populatePool();
         StartSpawning();
+    }
+
+    public void Update() 
+    {
+        if (Time.time > spawnFinalTargetTime && !HasSpawnedFinal)
+        {
+            HasSpawnedFinal = true;
+            FinalTarget.GetComponent<TargetFinal>().Spawn();
+        }
     }
 
     private void populatePool() 

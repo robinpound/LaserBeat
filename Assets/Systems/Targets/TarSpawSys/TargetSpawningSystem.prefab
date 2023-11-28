@@ -237,14 +237,16 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 176.13379
-      value: -1.5661621
-      inSlope: -0.21577682
-      outSlope: -0.21577682
-      tangentMode: 34
+      time: 179
+      value: -0.1
+      inSlope: -0.3907341
+      outSlope: -0.3907341
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.06334479
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  FinalTarget: {fileID: 0}
+  spawnFinalTargetTime: 180
