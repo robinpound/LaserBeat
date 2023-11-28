@@ -6,6 +6,7 @@ public class LaserGunRayCast : MonoBehaviour
     public static event HitAction OnLaserHit;
 
     [SerializeField] private Spawner spawner;
+    [SerializeField] private TargetFinal FinalTarget;
 
     public void Fire(Transform rayOrigin, int gunIndex)
     {
@@ -46,6 +47,7 @@ public class LaserGunRayCast : MonoBehaviour
     private void FinalTargetHit(RaycastHit hit)
     {
         Debug.Log("We hit the final colour target");
+        FinalTarget.HitTarget();
     }
 
     private void DebugRayCast(Transform rayOrigin)
