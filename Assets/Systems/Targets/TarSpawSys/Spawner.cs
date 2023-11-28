@@ -52,10 +52,6 @@ public class Spawner : MonoBehaviour
         populatePool();
         StartSpawning();
     }
-    public void Update() 
-    {
-        IfEmptySceneSpawn();
-    }
 
     private void populatePool() 
     {
@@ -83,13 +79,7 @@ public class Spawner : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
     }
-    private void IfEmptySceneSpawn()
-    {
-        if (pool.Count == poolSize)
-        {
-            spawnRandomTarget();
-        }
-    }
+
     private void spawnRandomTarget()
     {
         if (pool.Count != 0) // hard limit
