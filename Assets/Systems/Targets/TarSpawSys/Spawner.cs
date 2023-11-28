@@ -50,6 +50,10 @@ public class Spawner : MonoBehaviour
     private bool isSpawning = false;
     private int targetsInPlayCounter;
 
+    [SerializeField] ParticleSystem PurTarEffect;
+    [SerializeField] ParticleSystem YelTarEffect;
+    [SerializeField] ParticleSystem FinTarEffect;
+
     public void Start() 
     {
         populatePool();
@@ -107,6 +111,7 @@ public class Spawner : MonoBehaviour
     // Public methods
     public void despawnTarget(GameObject destroyedTarget) 
     {
+        Instantiate(PurTarEffect, destroyedTarget.transform);
         pool.Enqueue(destroyedTarget);
         destroyedTarget.SetActive(false);
         targetsInPlayCounter--;
