@@ -111,7 +111,7 @@ public class Spawner : MonoBehaviour
     // Public methods
     public void despawnTarget(GameObject destroyedTarget) 
     {
-        Instantiate(PurTarEffect, destroyedTarget.transform);
+        
         pool.Enqueue(destroyedTarget);
         destroyedTarget.SetActive(false);
         targetsInPlayCounter--;
