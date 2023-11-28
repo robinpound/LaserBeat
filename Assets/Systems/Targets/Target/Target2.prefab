@@ -9,8 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4784168612887539160}
+  - component: {fileID: -2847346751573000356}
   - component: {fileID: 4557588665147267054}
   - component: {fileID: 7783143561829608215}
+  - component: {fileID: 860659936751074725}
+  - component: {fileID: 1276016279292845428}
   m_Layer: 0
   m_Name: Target2
   m_TagString: Untagged
@@ -32,6 +35,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 90.00001, z: -90.00001}
+--- !u!65 &-2847346751573000356
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8376574195595403211}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0749383, y: 0.02172453, z: 0.07514731}
+  m_Center: {x: 0.000004101546, y: -0.000008515085, z: -0.0000050440462}
 --- !u!33 &4557588665147267054
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -77,3 +93,34 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &860659936751074725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8376574195595403211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0417b53eaec64384bf0b423abd274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SecDirectionChange: 5
+  Speed: 5
+  spawner: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736, type: 3}
+--- !u!114 &1276016279292845428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8376574195595403211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0bb04f8a83d13f4ca77a343157f533a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primaryMaterial: {fileID: 2100000, guid: 09039a1e0a980dc40899eb16770649e6, type: 2}
+  secondaryMaterial: {fileID: 2100000, guid: 9fcaa5fa6c6822e43af79cc6fe0e3ddf, type: 2}
+  finalMaterial: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  isFinal: 0
