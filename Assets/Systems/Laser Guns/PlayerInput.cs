@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private GameObject primaryHand, secondaryHand;
     private LaserGunRayCast rayCast;
     private LaserShotSFX sfx;
+    private SpawnLaserBullet spawnLaserBullet;
 
     int primaryGunIndex = 1;
     int secondaryGunIndex = 2;
@@ -16,6 +17,7 @@ public class PlayerInput : MonoBehaviour
     {
         rayCast = gameObject.GetComponent<LaserGunRayCast>();
         sfx = gameObject.GetComponent<LaserShotSFX>();
+        spawnLaserBullet = gameObject.GetComponent<SpawnLaserBullet>();   
     }
 
     private void Update() 
@@ -29,6 +31,7 @@ public class PlayerInput : MonoBehaviour
             {
                 //Debug.Log("Call right hand input");
                 rayCast.Fire(primaryHand.transform, primaryGunIndex);
+                spawnLaserBullet.InstantiateLaser(primaryGunIndex);
                 sfx.PlayShootSound();
             }
             
@@ -40,6 +43,7 @@ public class PlayerInput : MonoBehaviour
             {
                 //Debug.Log("Call left hand input");
                 rayCast.Fire(secondaryHand.transform, secondaryGunIndex);
+                spawnLaserBullet.InstantiateLaser(secondaryGunIndex);
                 sfx.PlayShootSound();
             }
             
