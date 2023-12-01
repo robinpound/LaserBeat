@@ -1204,6 +1204,14 @@ PrefabInstance:
       propertyPath: FinalTarget
       value: 
       objectReference: {fileID: 839769016}
+    - target: {fileID: 1904231370, guid: 4994f32cd55775a46ad67f141369aec3, type: 3}
+      propertyPath: primaryHand
+      value: 
+      objectReference: {fileID: 367301531}
+    - target: {fileID: 1904231370, guid: 4994f32cd55775a46ad67f141369aec3, type: 3}
+      propertyPath: secondaryHand
+      value: 
+      objectReference: {fileID: 272641595}
     - target: {fileID: 3677354560260778021, guid: 4994f32cd55775a46ad67f141369aec3,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -1299,14 +1307,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 1904231370, guid: 4994f32cd55775a46ad67f141369aec3, type: 3}
-      propertyPath: primaryHand
-      value: 
-      objectReference: {fileID: 367301531}
-    - target: {fileID: 1904231370, guid: 4994f32cd55775a46ad67f141369aec3, type: 3}
-      propertyPath: secondaryHand
-      value: 
-      objectReference: {fileID: 272641595}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4994f32cd55775a46ad67f141369aec3, type: 3}
 --- !u!4 &1736638674 stripped
@@ -28863,16 +28863,6 @@ PrefabInstance:
       propertyPath: FinalTarget
       value: 
       objectReference: {fileID: 839769013}
-    - target: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736,
-        type: 3}
-      propertyPath: dmax
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736,
-        type: 3}
-      propertyPath: ymin
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11c136d1bb9fa4048b995af3bacf3736, type: 3}
 --- !u!1001 &7363072517500611630

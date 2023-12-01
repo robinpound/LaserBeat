@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmin: 4
-  dmax: 10
+  dmax: 8
   xmin: -40
   xmax: 40
   ymin: 0
