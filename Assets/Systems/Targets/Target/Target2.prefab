@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1447637678255703792}
   - component: {fileID: 682946960}
   - component: {fileID: 682946959}
+  - component: {fileID: 1421856231201361415}
   - component: {fileID: 364141868426484627}
   m_Layer: 0
   m_Name: Target2
@@ -112,6 +113,19 @@ MonoBehaviour:
   SecDirectionChange: 5
   Speed: 5
   spawner: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736, type: 3}
+--- !u!114 &1421856231201361415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877037273176420908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79cf967595d7e064c8584a6a9e0f5ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 50
 --- !u!65 &364141868426484627
 BoxCollider:
   m_ObjectHideFlags: 0
