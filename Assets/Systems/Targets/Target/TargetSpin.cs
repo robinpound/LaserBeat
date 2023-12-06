@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class SpinTarget : MonoBehaviour
+public class TargetSpin : MonoBehaviour
 {
     public float rotationSpeed = 10f;
 
