@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 682946959}
   - component: {fileID: 1421856231201361415}
   - component: {fileID: 364141868426484627}
+  - component: {fileID: 9211410561140831490}
   m_Layer: 0
   m_Name: Target2
   m_TagString: Untagged
@@ -110,8 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d0417b53eaec64384bf0b423abd274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SecDirectionChange: 5
-  Speed: 5
+  SecDirectionChange: 2.1
+  Speed: 2.99
   spawner: {fileID: 1714971559606798719, guid: 11c136d1bb9fa4048b995af3bacf3736, type: 3}
 --- !u!114 &1421856231201361415
 MonoBehaviour:
@@ -137,5 +138,17 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.07493825, y: 0.07481327, z: 0.075147234}
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0.000003822148, y: 0.0001836009, z: -0.0000051129605}
+--- !u!114 &9211410561140831490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877037273176420908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f251912f6a33d448b014fc20dca3b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

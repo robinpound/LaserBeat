@@ -4,7 +4,7 @@ using Liminal.SDK.VR.Input;
 
 public class PlayerInput : MonoBehaviour
 {
-    [Tooltip("Attach primary and secondary hand game objects located on the VR avatar, here")]
+    [Tooltip("Attach primary and secondary hand game objects located on the VR avatar, here. This is where the raycast will start from")]
     [SerializeField] private GameObject primaryHand, secondaryHand;
     private LaserGunRayCast rayCast;
     private LaserShotSFX sfx;
