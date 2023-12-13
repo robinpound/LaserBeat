@@ -2,8 +2,12 @@
 
 public class LaserGunRayCast : MonoBehaviour
 {
+    // Event for normal targets
     public delegate void HitAction(RaycastHit hit);
     public static event HitAction OnLaserHit;
+    // Event for final target
+    public delegate void FinalHitAction();
+    public static event FinalHitAction OnFinalTargetHit;
 
     [SerializeField] private Spawner spawner;
     [SerializeField] private TargetFinal FinalTarget;
@@ -46,8 +50,9 @@ public class LaserGunRayCast : MonoBehaviour
     }
     private void FinalTargetHit(RaycastHit hit)
     {
-        Debug.Log("We hit the final colour target");
+        //Debug.Log("We hit the final colour target");
         FinalTarget.HitTarget();
+        OnFinalTargetHit();
     }
 
     private void DebugRayCast(Transform rayOrigin)

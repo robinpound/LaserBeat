@@ -94,6 +94,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizestep: 1
   health: 5
+  sizeThreshold: 4
+  deathParticles: {fileID: 6614397228836651841, guid: 7d94396f5b27b8740915417546948bf8,
+    type: 3}
 --- !u!114 &6803709678221356977
 MonoBehaviour:
   m_ObjectHideFlags: 0
