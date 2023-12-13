@@ -43,10 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1eccb0378587df41819af36dde0b945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmin: 4
-  dmax: 8
-  xmin: -40
-  xmax: 40
+  dmin: 6
+  dmax: 12
+  xmin: -45
+  xmax: 45
   ymin: 0
   ymax: 21.7
   dminColor: {r: 0.065966964, g: 0.103773594, b: 0.059229266, a: 0.30588236}
