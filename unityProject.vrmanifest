@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.templatelimapp.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\robin\\Desktop\\CompSci\\Liminal\\LaserBeat\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\Mikey\\OneDrive\\Documents\\GitHub\\LaserBeat\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "TemplateLimapp [Testing]"

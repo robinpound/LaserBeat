@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Liminal.Core.Fader;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +16,11 @@ public class TargetFinal : MonoBehaviour
     public void Update()
     {
         IncreaseSize();
-        if (transform.localScale.x >= sizeThreshold) Despawn();
+        if (transform.localScale.x >= sizeThreshold)
+        {
+            FadeScreenToBlack();
+            Despawn();
+        }
     }
 
     public void HitTarget() 
@@ -28,6 +33,12 @@ public class TargetFinal : MonoBehaviour
     {
         Instantiate(deathParticles, transform.position, Quaternion.identity);
         Despawn();
+    }
+
+    private void FadeScreenToBlack()
+    {
+        var fader = ScreenFader.Instance;
+        fader.FadeTo(Color.black, 2f);
     }
     
     private void Despawn() => gameObject.SetActive(false);
