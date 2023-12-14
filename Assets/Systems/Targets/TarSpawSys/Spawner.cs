@@ -92,7 +92,7 @@ public class Spawner : MonoBehaviour
             {
                 spawnRandomTarget();
             }
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(2f);
         }
     }
 
@@ -104,14 +104,24 @@ public class Spawner : MonoBehaviour
             newTarget.transform.position = getRandomLocationInArea();
             newTarget.SetActive(true);
             newTarget.GetComponent<TargetMovement>().SetTargetMoving();
+            Debug.Log("CAlled !");
+            StartCoroutine(despawnAfterTime(newTarget));
             targetsInPlayCounter++;
         }
     }
+    IEnumerator despawnAfterTime(GameObject destroyedTarget) 
+    {
+        yield return new WaitForSeconds(5);
+        if (destroyedTarget.activeInHierarchy == true) 
+        {
+            despawnTarget(destroyedTarget);
+        }
+    }
+
 
     // Public methods
     public void despawnTarget(GameObject destroyedTarget) 
     {
-        
         pool.Enqueue(destroyedTarget);
         destroyedTarget.SetActive(false);
         targetsInPlayCounter--;
