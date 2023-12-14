@@ -50,9 +50,10 @@ public class Spawner : MonoBehaviour
     private bool isSpawning = false;
     private int targetsInPlayCounter;
 
-    [SerializeField] ParticleSystem PurTarEffect;
-    [SerializeField] ParticleSystem YelTarEffect;
-    [SerializeField] ParticleSystem FinTarEffect;
+
+    // Event for despawning target after not being hit
+    public delegate void TargetDespawnAction(Vector3 position);
+    public static event TargetDespawnAction TDA;
 
     public void Start() 
     {
@@ -104,16 +105,18 @@ public class Spawner : MonoBehaviour
             newTarget.transform.position = getRandomLocationInArea();
             newTarget.SetActive(true);
             newTarget.GetComponent<TargetMovement>().SetTargetMoving();
-            Debug.Log("CAlled !");
+
             StartCoroutine(despawnAfterTime(newTarget));
+
             targetsInPlayCounter++;
         }
     }
     IEnumerator despawnAfterTime(GameObject destroyedTarget) 
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
         if (destroyedTarget.activeInHierarchy == true) 
         {
+            TDA(destroyedTarget.transform.position);
             despawnTarget(destroyedTarget);
         }
     }

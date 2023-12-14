@@ -9,7 +9,7 @@ public class TargetFinal : MonoBehaviour
     [SerializeField] float sizestep = 1f;
     [SerializeField] int health = 5;
     [SerializeField] float sizeThreshold = 5f;
-    [SerializeField] ParticleSystem deathParticles;
+    //[SerializeField] ParticleSystem deathParticles;
 
     public void Spawn() => gameObject.SetActive(true);
 
@@ -31,7 +31,7 @@ public class TargetFinal : MonoBehaviour
 
     private void DestroyTarget()
     {
-        Instantiate(deathParticles, transform.position, Quaternion.identity);
+        //Instantiate(deathParticles, transform.position, Quaternion.identity);
         Despawn();
     }
 

@@ -52,6 +52,7 @@ public class LaserGunRayCast : MonoBehaviour
     {
         //Debug.Log("We hit the final colour target");
         FinalTarget.HitTarget();
+        OnLaserHit(hit);
         OnFinalTargetHit();
     }
 

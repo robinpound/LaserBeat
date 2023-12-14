@@ -5,9 +5,18 @@ public class SpawnParticles : MonoBehaviour
     [SerializeField] private ParticleSystem PSEFinal;
     [SerializeField] private ParticleSystem PSEPurple;
     [SerializeField] private ParticleSystem PSEYellow;
+    [SerializeField] private ParticleSystem DespawnParticle;
 
-    void OnEnable() => LaserGunRayCast.OnLaserHit += AcitvateParticleEffect;
-    void OnDisable() => LaserGunRayCast.OnLaserHit -= AcitvateParticleEffect;
+    void OnEnable()
+    {
+        LaserGunRayCast.OnLaserHit += AcitvateParticleEffect;
+        Spawner.TDA += ActivateDespawnParticleEffect;
+    }
+    void OnDisable()
+    {
+        LaserGunRayCast.OnLaserHit -= AcitvateParticleEffect;
+        Spawner.TDA -= ActivateDespawnParticleEffect;
+    }
 
     private void AcitvateParticleEffect(RaycastHit h)
     {
@@ -20,8 +29,12 @@ public class SpawnParticles : MonoBehaviour
                 Instantiate(PSEPurple, h.point, Quaternion.identity);
                 break;
             case TargetType.TargetMaterial.Final:
-                Instantiate(PSEPurple, h.point, Quaternion.identity);
+                Instantiate(PSEFinal, h.collider.transform.position, Quaternion.identity);
                 break;
         }
+    }
+    private void ActivateDespawnParticleEffect(Vector3 position) 
+    {
+        Instantiate(DespawnParticle, position, Quaternion.identity);
     }
 }
