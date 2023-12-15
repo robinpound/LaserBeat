@@ -44,12 +44,16 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float spawnFinalTargetTime;
     private bool HasSpawnedFinal = false;
 
+
         // Private 
 
     private Queue<GameObject> pool;
     private bool isSpawning = false;
     private int targetsInPlayCounter;
-
+    [Tooltip("How long the spawner will wait until the next target is queued into the pool")]
+    [Range(0f, 3f)] [SerializeField] private float delayTargetQueueTime = 1f;
+    [Tooltip("How long until a target dequeues if not shot")]
+    [Range(0f, 3f)][SerializeField] private float notShotDespawnTime = 5f;
 
     // Event for despawning target after not being hit
     public delegate void TargetDespawnAction(Vector3 position);
@@ -93,7 +97,7 @@ public class Spawner : MonoBehaviour
             {
                 spawnRandomTarget();
             }
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(delayTargetQueueTime);
         }
     }
 
@@ -113,7 +117,7 @@ public class Spawner : MonoBehaviour
     }
     IEnumerator despawnAfterTime(GameObject destroyedTarget) 
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(notShotDespawnTime);
         if (destroyedTarget.activeInHierarchy == true) 
         {
             TDA(destroyedTarget.transform.position);

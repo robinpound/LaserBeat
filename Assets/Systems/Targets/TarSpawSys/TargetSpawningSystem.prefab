@@ -250,9 +250,5 @@ MonoBehaviour:
     m_RotationOrder: 4
   FinalTarget: {fileID: 0}
   spawnFinalTargetTime: 180
-  PurTarEffect: {fileID: 6614397228836651841, guid: 26a0b211fab4db8459349234d173ed8d,
-    type: 3}
-  YelTarEffect: {fileID: 6614397228836651841, guid: d3b8dd0582fd3ac46939134f48c34950,
-    type: 3}
-  FinTarEffect: {fileID: 6614397228836651841, guid: 7d94396f5b27b8740915417546948bf8,
-    type: 3}
+  delayTargetQueueTime: 0.7
+  notShotDespawnTime: 5
