@@ -1,5 +1,7 @@
 
 
-![image](https://github.com/robinpound/LaserBeat/assets/54936470/31f9f332-39b0-4a40-a2ad-57a41ad149b3)
+![image](![image](https://github.com/robinpound/LaserBeat/assets/54936470/ccbc5ff6-48ba-4d10-8275-014dadb3ceab)
+![Uploading image.png…]()
+
 
 ![link](https://www.youtube.com/watch?v=vuzkZVSXGzM)
